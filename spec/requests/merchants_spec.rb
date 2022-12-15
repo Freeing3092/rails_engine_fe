@@ -12,7 +12,7 @@ RSpec.describe "Merchants", type: :request do
   
   describe "GET /show" do
     it "returns http success" do
-      items = MerchantsItemsService.merchant_items(1)
+      items = MerchantsService.merchant_items(1)
       
       expect(items[:data]).to be_a Array
       expect(items[:data][0][:attributes][:name]).to be_a String
