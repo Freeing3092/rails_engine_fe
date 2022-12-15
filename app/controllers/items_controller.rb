@@ -4,5 +4,6 @@ class ItemsController < ApplicationController
   end
 
   def show
+    @item = ItemsFacade.item(params[:id])
   end
 end

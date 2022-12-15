@@ -14,4 +14,10 @@ class ItemsFacade
       Item.new(item)
     end
   end
+
+  def self.item(item_id)
+    json = ItemsService.item(item_id)
+
+    Item.new(json[:data])
+  end
 end

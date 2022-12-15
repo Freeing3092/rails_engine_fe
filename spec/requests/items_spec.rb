@@ -10,10 +10,15 @@ RSpec.describe "Items", type: :request do
     end
   end
 
-  xdescribe "GET /show" do
+  describe "GET /show" do
     it "returns http success" do
-      get "/items/show"
-      expect(response).to have_http_status(:success)
+      item = ItemsService.item(179)
+
+      expect(item[:data]).to be_a Hash
+      expect(item[:data][:id]).to eq('179')
+      expect(item[:data][:attributes][:name]).to be_a String
+      expect(item[:data][:attributes][:description]).to be_a String
+      expect(item[:data][:attributes][:unit_price]).to be_a Float
     end
   end
 
