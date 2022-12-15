@@ -6,4 +6,12 @@ class ItemsFacade
       Item.new(item)
     end
   end
+
+  def self.items
+    json = ItemsService.items
+
+    items = json[:data].map do |item|
+      Item.new(item)
+    end
+  end
 end
